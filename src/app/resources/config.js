@@ -3,7 +3,7 @@ const baseURL = 'nextjs-portfolio.up.railway.app'
 const routes = {
     '/':        true,
     '/about':   true,
-    '/work':    true,
+    '/projects':true,
     '/blog':    true,
     '/gallery': true,
 }
@@ -17,17 +17,17 @@ const protectedRoutes = {
 const effects = {
     gradient: true,
     dots:     true,
-    lines:    false,
+    lines:    true,
 }
 
 const style = {
     theme:       'dark',         // dark | light
     neutral:     'gray',         // sand | gray | slate
-    brand:       'aqua',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-    accent:      'yellow',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-    solid:       'contrast',     // color | contrast
-    solidStyle:  'flat',         // flat | plastic
-    border:      'playful',      // rounded | playful | conservative
+    brand:       'cyan',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    accent:      'aqua',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    solid:       'color',        // color | contrast
+    solidStyle:  'plastic',      // flat | plastic
+    border:      'rounded',      // rounded | playful | conservative
     surface:     'translucent',  // filled | translucent
     transition:  'all'           // all | micro | macro
 }

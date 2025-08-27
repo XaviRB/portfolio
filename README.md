@@ -55,13 +55,6 @@ You try pre-built designs by changing the imports for the config and content in 
 - Generate and display social links automatically
 - Set up password protection for URLs
 
-# **Authors**
-
-Connect with us on X or LinkedIn.
-
-Lorant Toth: [X](https://x.com/lorant_one), [LinkedIn](https://www.linkedin.com/in/tothlorant/)  
-Zsofia Komaromi: [X](https://x.com/zsofiakomaromi), [LinkedIn](https://www.linkedin.com/in/zsofiakomaromi/)
-
 # **Get involved**
 
 - Join the [Once UI Discord server](https://discord.com/invite/5EyAQ4eNdS) and share your portfolio with designers and developers!

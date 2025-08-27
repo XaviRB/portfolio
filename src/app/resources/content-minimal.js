@@ -47,7 +47,7 @@ const home = {
     label: 'Home',
     title: `${person.name}'s Portfolio`,
     description: `Portfolio website showcasing my work as a ${person.role}`,
-    headline: <>Design engineer and builder</>,
+    headline: <>Engineer and Builder</>,
     subline: <>I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive user experiences. After hours, I build my own projects.</>
 }
 
@@ -63,7 +63,7 @@ const about = {
         display: false
     },
     calendar: {
-        display: false,
+        display: true,
         link: 'https://cal.com'
     },
     intro: {

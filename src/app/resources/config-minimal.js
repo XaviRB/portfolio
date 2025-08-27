@@ -2,8 +2,8 @@ const baseURL = 'nextjs-portfolio.up.railway.app'
 
 const routes = {
     '/':        true,
-    '/about':   true,
-    '/work':    true,
+    '/about':   false,
+    '/projects': true,
     '/blog':    true,
     '/gallery': false,
 }
@@ -21,14 +21,14 @@ const effects = {
 }
 
 const style = {
-    theme:       'light',        // dark | light
+    theme:       'dark',        // dark | light
     neutral:     'gray',         // sand | gray | slate
-    brand:       'blue',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-    accent:      'blue',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    brand:       'aqua',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    accent:      'yellow',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
     solid:       'contrast',     // color | contrast
     solidStyle:  'flat',         // flat | plastic
-    border:      'conservative', // rounded | playful | conservative
-    surface:     'filled',       // filled | translucent
+    border:      'playful', // rounded | playful | conservative
+    surface:     'translucent',       // filled | translucent
     transition:  'all'           // all | micro | macro
 }
 

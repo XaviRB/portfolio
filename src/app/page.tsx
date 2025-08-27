@@ -74,7 +74,8 @@ export default function Home() {
 						<RevealFx translateY="4">
 							<Heading
 								wrap="balance"
-								variant="display-strong-l">
+								variant="display-strong-l"
+								style={{ paddingBottom: "5%" }}>
 								{home.headline}
 							</Heading>
 						</RevealFx>
