@@ -1,4 +1,4 @@
-# Xavier Rodriguez — Portfolio
+# Portfolio
 
 My personal portfolio website, live at [xrodriguez.dev](https://xrodriguez.dev).
 
