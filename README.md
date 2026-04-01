@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # **Build your portfolio with Once UI's Magic Portfolio**
 
 Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
@@ -70,3 +71,7 @@ See `LICENSE.txt` for more information.
 
 # **Deploy with Vercel**
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=https%3A%2F%2Fonce-ui.com%2Fimages%2Ftemplates%2Fmagic-portfolio%2Fcover.jpg)
+=======
+# portfolio
+My personal professional website used to connect me to the world
+>>>>>>> c593c1dbb982763866cac2ff78b438db0446fc80
