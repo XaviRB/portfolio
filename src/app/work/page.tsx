@@ -33,7 +33,24 @@ export function generateMetadata() {
 }
 
 export default function Work() {
-    let allProjects = getPosts(['src', 'app', 'work', 'projects']);
+    const allProjects = getPosts(['src', 'app', 'work', 'projects']);
+
+    const structuredProjects = allProjects.map((project) => {
+        const imagePath = project.metadata.image || project.metadata.images?.[0];
+        const imageUrl = imagePath
+            ? imagePath.startsWith('http')
+                ? imagePath
+                : `https://${baseURL}${imagePath}`
+            : `https://${baseURL}/og?title=${encodeURIComponent(project.metadata.title)}`;
+
+        return {
+            '@type': 'CreativeWork',
+            headline: project.metadata.title,
+            description: project.metadata.summary,
+            url: `https://${baseURL}/work/${project.slug}`,
+            image: imageUrl,
+        };
+    });
 
     return (
         <Flex
@@ -48,19 +65,13 @@ export default function Work() {
                         '@type': 'CollectionPage',
                         headline: work.title,
                         description: work.description,
-                        url: `https://${baseURL}/projects`,
-                        image: `${baseURL}/og?title=Design%20Projects`,
+                        url: `https://${baseURL}/work`,
+                        image: `https://${baseURL}/og?title=Design%20Projects`,
                         author: {
                             '@type': 'Person',
                             name: person.name,
                         },
-                        hasPart: allProjects.map(project => ({
-                            '@type': 'CreativeWork',
-                            headline: project.metadata.title,
-                            description: project.metadata.summary,
-                            url: `https://${baseURL}/projects/${project.slug}`,
-                            image: `${baseURL}/${project.metadata.image}`,
-                        })),
+                        hasPart: structuredProjects,
                     }),
                 }}
             />

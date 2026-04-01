@@ -212,7 +212,15 @@ export default function About() {
                             <Flex
                                 direction="column"
                                 fillWidth gap="l" marginBottom="40">
-                                {about.work.experiences.map((experience, index) => (
+                                {about.work.experiences.map((experience, index) => {
+                                    const images = (experience.images ?? []) as Array<{
+                                        src: string;
+                                        alt: string;
+                                        width: number;
+                                        height: number;
+                                    }>;
+
+                                    return (
                                     <Flex
                                         key={`${experience.company}-${experience.role}-${index}`}
                                         fillWidth
@@ -251,11 +259,11 @@ export default function About() {
                                                 </Text>
                                             ))}
                                         </Flex>
-                                        {experience.images.length > 0 && (
+                                        {images.length > 0 && (
                                             <Flex
                                                 fillWidth paddingTop="m" paddingLeft="40"
                                                 wrap>
-                                                {experience.images.map((image, index) => (
+                                                {images.map((image, index) => (
                                                     <Flex
                                                         key={index}
                                                         border="neutral-medium"
@@ -273,7 +281,8 @@ export default function About() {
                                             </Flex>
                                         )}
                                     </Flex>
-                                ))}
+                                    );
+                                })}
                             </Flex>
                         </>
                     )}

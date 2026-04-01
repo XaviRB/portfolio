@@ -8,7 +8,7 @@ import styles from '@/app/components/Header.module.scss'
 
 
 import { routes, display } from '../resources'
-import { person, home, about, blog, projects, gallery } from '../resources'
+import { person, home, about, blog, work } from '../resources'
 
 type TimeDisplayProps = {
     timeZone: string;
@@ -103,14 +103,6 @@ export const Header = () => {
                             href="/blog"
                             selected={pathname.startsWith('/blog')}>
                             <Flex paddingX="2" hide="s">{blog.label}</Flex>
-                        </ToggleButton>
-                    )}
-                    { routes['/gallery'] && (
-                        <ToggleButton
-                            prefixIcon="gallery"
-                            href="/gallery"
-                            selected={pathname.startsWith('/gallery')}>
-                            <Flex paddingX="2" hide="s">{gallery.label}</Flex>
                         </ToggleButton>
                     )}
                 </Flex>

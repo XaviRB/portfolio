@@ -19,28 +19,33 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: WorkParams) {
-	let post = getPosts(['src', 'app', 'work', 'projects']).find((post) => post.slug === params.slug)
-	
+	const post = getPosts(['src', 'app', 'work', 'projects']).find((entry) => entry.slug === params.slug);
+
 	if (!post) {
-		return
+		return;
 	}
 
-	let {
+	const {
 		title,
 		publishedAt: publishedTime,
 		summary: description,
-		images,
+		images = [],
 		image,
 		team,
-	} = post.metadata
-	let ogImage = image
-		? `https://${baseURL}${image}`
-		: `https://${baseURL}/og?title=${title}`;
+	} = post.metadata;
+
+	const toAbsoluteUrl = (path?: string) => {
+		if (!path) return undefined;
+		return path.startsWith('http') ? path : `https://${baseURL}${path}`;
+	};
+
+	const resolvedImages = images.map((entry) => toAbsoluteUrl(entry)).filter(Boolean) as string[];
+	const primaryImage = toAbsoluteUrl(image) ?? resolvedImages[0] ?? `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
 	return {
 		title,
 		description,
-		images,
+		images: resolvedImages,
 		team,
 		openGraph: {
 			title,
@@ -50,7 +55,7 @@ export function generateMetadata({ params }: WorkParams) {
 			url: `https://${baseURL}/work/${post.slug}`,
 			images: [
 				{
-					url: ogImage,
+					url: primaryImage,
 				},
 			],
 		},
@@ -58,9 +63,9 @@ export function generateMetadata({ params }: WorkParams) {
 			card: 'summary_large_image',
 			title,
 			description,
-			images: [ogImage],
+			images: [primaryImage],
 		},
-	}
+	};
 }
 
 export default function Project({ params }: WorkParams) {
@@ -70,9 +75,15 @@ export default function Project({ params }: WorkParams) {
 		notFound()
 	}
 
-	const avatars = post.metadata.team?.map((person) => ({
-        src: person.avatar,
-    })) || [];
+	const toAbsoluteUrl = (path?: string) => {
+		if (!path) return undefined;
+		return path.startsWith('http') ? path : `https://${baseURL}${path}`;
+	};
+
+	const projectImage = toAbsoluteUrl(post.metadata.image) ?? toAbsoluteUrl(post.metadata.images?.[0]) ?? `https://${baseURL}/og?title=${encodeURIComponent(post.metadata.title)}`;
+	const avatars = post.metadata.team?.map((member) => ({
+		src: member.avatar,
+	})) || [];
 
 	return (
 		<Flex as="section"
@@ -90,9 +101,7 @@ export default function Project({ params }: WorkParams) {
 						datePublished: post.metadata.publishedAt,
 						dateModified: post.metadata.publishedAt,
 						description: post.metadata.summary,
-						image: post.metadata.image
-							? `https://${baseURL}${post.metadata.image}`
-							: `https://${baseURL}/og?title=${post.metadata.title}`,
+					image: projectImage,
 							url: `https://${baseURL}/work/${post.slug}`,
 						author: {
 							'@type': 'Person',
@@ -115,6 +124,15 @@ export default function Project({ params }: WorkParams) {
 					variant="display-strong-s">
 					{post.metadata.title}
 				</Heading>
+				{post.metadata.link && (
+					<Button
+						href={post.metadata.link}
+						variant="secondary"
+						size="s"
+						suffixIcon="arrowUpRight">
+						Visit Site
+					</Button>
+				)}
 			</Flex>
 			{post.metadata.images.length > 0 && (
 				<SmartImage

@@ -3,8 +3,7 @@ import React from 'react';
 import { Heading, Flex, Text, Button,  Avatar, RevealFx } from '@/once-ui/components';
 import { Projects } from '@/app/work/components/Projects';
 
-import { about, baseURL, home, newsletter, person, routes } from '@/app/resources'
-import { Mailchimp } from '@/app/components';
+import { about, baseURL, home, person, routes } from '@/app/resources'
 import { Posts } from '@/app/blog/components/Posts';
 
 export function generateMetadata() {
@@ -119,9 +118,6 @@ export default function Home() {
 				</Flex>
 			)}
 			<Projects range={[2]}/>
-			{ newsletter.display &&
-				<Mailchimp/>
-			}
-		</Flex>
+			</Flex>
 	);
 }

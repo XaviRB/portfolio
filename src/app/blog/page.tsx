@@ -1,9 +1,8 @@
 import { Flex, Heading } from '@/once-ui/components';
-import { Mailchimp } from '@/app/components';
 import { Posts } from '@/app/blog/components/Posts';
 
-import { blog, newsletter, person } from '@/app/resources'
-import { baseURL, mailchimp } from '@/app/resources'
+import { blog, person } from '@/app/resources'
+import { baseURL } from '@/app/resources'
 
 export function generateMetadata() {
 	const title = blog.title;
@@ -67,13 +66,10 @@ export default function Blog() {
                 {blog.title}
             </Heading>
 			<Flex
-				fillWidth flex={1}>
+				fillWidth flex={1} direction="column">
 				<Posts range={[1,3]}/>
 				<Posts range={[4]} columns="2"/>
 			</Flex>
-            {newsletter.display && (
-                <Mailchimp/>
-            )}
         </Flex>
     );
 }

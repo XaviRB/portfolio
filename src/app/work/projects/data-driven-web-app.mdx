@@ -1,0 +1,44 @@
+---
+title: "Database Driven Web App"
+publishedAt: "2024-07-16"
+summary: "A full-stack task management application built with the PERN stack (PostgreSQL, Express.js, React, and Node.js). The app allows users to create, edit, delete, and complete tasks with due date tracking, backed by a live PostgreSQL database and a RESTful API."
+images:
+  - "/images/projects/project-01/video-01.mp4"
+team:
+  - name: "Xavier Rodriguez"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/xavier-rodriguez-a9120023b/"
+---
+
+## Overview
+
+This is a full-stack task management application built using the PERN stack — PostgreSQL, Express.js, React, and Node.js — within a Next.js framework. The goal of the project was to demonstrate end-to-end development: designing a relational database schema, building a RESTful API, and connecting it to a dynamic front-end that allows users to manage their tasks in real time.
+
+## Key Features
+
+- **Task Management**: Users can create, edit, delete, and mark tasks as complete through a clean, responsive interface.
+- **Due Date Tracking**: Each task supports an optional due date, helping users prioritize and stay on schedule.
+- **RESTful API**: Built four API routes to handle all CRUD operations against a live PostgreSQL database:
+  - `GET /api/tasks` — Fetch all tasks
+  - `POST /api/tasks` — Add a new task
+  - `PUT /api/tasks?id=<id>` — Update a task by ID
+  - `DELETE /api/tasks?id=<id>` — Delete a task by ID
+- **Database Integration**: PostgreSQL database with a structured `tasks` table storing task descriptions, completion status, and due dates.
+- **Responsive Styling**: Styled with Tailwind CSS for a clean, mobile-friendly layout.
+
+## Technologies Used
+
+- **Next.js / React**: For the front-end UI and page routing.
+- **Node.js / Express.js**: For server-side API logic.
+- **PostgreSQL**: For persistent relational data storage.
+- **Tailwind CSS**: For utility-first responsive styling.
+- **TypeScript**: For type-safe component and data definitions.
+
+## Challenges and Learnings
+
+One of the key challenges was structuring the API to handle all task states cleanly, particularly managing partial updates with `PUT` without overwriting fields that weren't changed. Setting up the PostgreSQL connection with environment variables and ensuring the database schema was consistent across environments was also a valuable exercise in production readiness and configuration management.
+
+## Outcome
+
+The result is a working, database-backed task management app that demonstrates fullstack proficiency from schema design through to a polished UI. The project reinforced best practices around RESTful API design, database interaction, and building scalable Next.js applications with typed data models.
