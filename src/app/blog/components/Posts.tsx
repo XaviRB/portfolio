@@ -31,7 +31,7 @@ export function Posts({
                     /** Desktop grid size */
                     columns={columns}
                     /** Mobile breakpoint forces 1 column */
-                    mobileColumns="1"
+                    mobileColumns="1col"
                     fillWidth
                     marginBottom="40"
                     gap="m"
