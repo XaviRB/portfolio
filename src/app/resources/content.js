@@ -186,4 +186,37 @@ const work = {
     // All projects will be listed on the /home and /work routes
 }
 
-export { person, social, home, about, blog, work, projects };
+const skills = {
+    categories: [
+        {
+            title: 'Programming Languages',
+            items: ['Java', 'JavaScript', 'TypeScript', 'Python', 'SQL', 'C#', 'C/C++', 'Swift', 'PowerShell', 'Racket']
+        },
+        {
+            title: 'Web Technologies',
+            items: ['HTML', 'CSS', 'XML', 'REST APIs', 'GraphQL', 'WebSocket', 'Microservices']
+        },
+        {
+            title: 'Frameworks & Libraries',
+            items: ['React.js', 'Next.js', 'Node.js', 'Express.js', 'Spring Boot', 'Flask', 'FastAPI', 'Blazor', 'ASP.NET Boilerplate', 'Java Swing']
+        },
+        {
+            title: 'Technologies',
+            items: ['Redis', 'RabbitMQ', 'Kafka', 'Kubernetes (GKE, EKS)', 'Docker', 'PostgreSQL', 'MongoDB', 'MongoDB Vector Search', 'DynamoDB', 'Firebase', 'MSSQL', 'AWS (S3, Lambda, EC2, Cognito)', 'GCP', 'Snowflake', 'OpenAI API', 'LangChain', 'AssemblyAI', 'Nginx', 'SAP', 'Power BI']
+        },
+        {
+            title: 'Testing & QA',
+            items: ['Test Automation', 'Selenium', 'RPA', 'Postman', 'JIRA', 'Test Planning', 'UAT', 'Android Studio', 'Twilio']
+        },
+        {
+            title: 'Developer Tools',
+            items: ['Git', 'GitHub Actions', 'GitLab', 'VS Code', 'Linux', 'Bash']
+        },
+        {
+            title: 'Other Skills',
+            items: ['Systems Architecture', 'Object-Oriented Programming', 'API Design', 'CI/CD', 'Agile Methodologies', 'Testing', 'Automation Testing', 'Design Patterns', 'Data Analysis', 'Cloud Security', 'Security (JWT, RBAC, Rate Limiting)']
+        }
+    ]
+}
+
+export { person, social, home, about, blog, work, projects, skills };
