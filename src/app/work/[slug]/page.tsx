@@ -5,9 +5,9 @@ import { AvatarGroup, Button, Flex, Heading, SmartImage, Text } from '@/once-ui/
 import { baseURL, person } from '@/app/resources';
 
 interface WorkParams {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export async function generateStaticParams() {
@@ -18,8 +18,9 @@ export async function generateStaticParams() {
 	}))
 }
 
-export function generateMetadata({ params }: WorkParams) {
-	const post = getPosts(['src', 'app', 'work', 'projects']).find((entry) => entry.slug === params.slug);
+export async function generateMetadata({ params }: WorkParams) {
+	const { slug } = await params;
+	const post = getPosts(['src', 'app', 'work', 'projects']).find((entry) => entry.slug === slug);
 
 	if (!post) {
 		return;
@@ -68,8 +69,9 @@ export function generateMetadata({ params }: WorkParams) {
 	};
 }
 
-export default function Project({ params }: WorkParams) {
-	let post = getPosts(['src', 'app', 'work', 'projects']).find((post) => post.slug === params.slug)
+export default async function Project({ params }: WorkParams) {
+	const { slug } = await params;
+	let post = getPosts(['src', 'app', 'work', 'projects']).find((post) => post.slug === slug)
 
 	if (!post) {
 		notFound()
